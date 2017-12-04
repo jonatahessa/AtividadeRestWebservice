@@ -23,7 +23,7 @@ import modelo.Cliente;
  *
  * @author jonat
  */
-@Path("ADO 2")
+@Path("ADO2")
 public class ResourceRestful {
 
     @Context
@@ -47,7 +47,7 @@ public class ResourceRestful {
     
     @GET
     @Produces("application/json")
-    @Path("cliente/get")
+    @Path("cliente/listarClientes")
     public String getClientes() throws Exception {
         Gson g = new Gson();
         DaoCliente dc = new DaoCliente();

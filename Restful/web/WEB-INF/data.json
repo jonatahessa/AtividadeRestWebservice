@@ -1,0 +1,6 @@
+{
+  "p1": { "name":"John", "age":30, "car":null },
+
+  "p2": { "name":"Jonata", "age":30, "car":null }
+
+}
