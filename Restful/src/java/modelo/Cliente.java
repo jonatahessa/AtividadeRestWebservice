@@ -1,8 +1,5 @@
 package modelo;
 
-import java.util.Date;
-import java.util.List;
-
 public class Cliente {
 
     private Long codigoCliente;

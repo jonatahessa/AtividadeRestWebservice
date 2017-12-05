@@ -12,9 +12,12 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import modelo.Cliente;
 
@@ -54,6 +57,34 @@ public class ResourceRestful {
         List<Cliente> clientes = dc.listar();
         
         return g.toJson(clientes);
+    }
+    
+    @GET
+    @Produces("application/json")
+    @Path("cliente/obter/{id}")
+    public String editar(@PathParam("id") Long id) throws Exception {
+        Gson g = new Gson();
+        DaoCliente dc = new DaoCliente();
+        Cliente cliente = dc.obter(id);
+        
+        return g.toJson(cliente);
+    }
+    
+    @POST
+    @Consumes("application/json")
+    @Path("cliente/adicionarCliente")
+    public void inserir(String content) throws Exception {
+        Gson gson = new Gson();
+        Cliente cliente = gson.fromJson(content, Cliente.class);
+        DaoCliente dc = new DaoCliente();
+        dc.inserir(cliente);
+    }
+    
+    @DELETE
+    @Path("cliente/deletar/{id}")
+    public void excluir(@PathParam("id") Long id) throws Exception {
+        DaoCliente dc = new DaoCliente();
+        dc.deletar(id);
     }
 
     /**

@@ -53,7 +53,7 @@ public class DaoCliente {
             throws SQLException, Exception {
         //Monta a string de remoção de um cliente no BD,
         //utilizando os dados do clientes passados como parâmetro
-        String sql = "DELETE FROM Cliente"
+        String sql = "DELETE FROM Cliente "
                 + "WHERE id = ?; ";
 
         //Conexão para abertura e fechamento
