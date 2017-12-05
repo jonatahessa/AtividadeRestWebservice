@@ -92,7 +92,12 @@ public class ResourceRestful {
      * @param content representation for the resource
      */
     @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
+    @Consumes("application/json")
+    @Path("cliente/editarCliente")
+    public void editar(String content) throws Exception {
+        Gson gson = new Gson();
+        Cliente cliente = gson.fromJson(content, Cliente.class);
+        DaoCliente dc = new DaoCliente();
+        dc.alterar(cliente);
     }
 }

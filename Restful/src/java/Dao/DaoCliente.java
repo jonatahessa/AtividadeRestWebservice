@@ -85,7 +85,7 @@ public class DaoCliente {
         }
     }
 
-    public void alterar(Cliente cliente, String id)
+    public void alterar(Cliente cliente)
             throws SQLException, Exception {
         String sql = "UPDATE Cliente SET Nome = ?, login = ?, senha = ? "
                 + "WHERE id = ?;";
@@ -99,8 +99,7 @@ public class DaoCliente {
             statement.setString(1, cliente.getNomeCliente());
             statement.setString(2, cliente.getLogin());
             statement.setString(3, cliente.getSenhaCliente());
-            int idtrue = Integer.parseInt(id);
-            statement.setInt(4, idtrue);
+            statement.setLong(4, cliente.getCodigoCliente());
             System.out.println(statement.toString());
 
             System.out.println("Executando COMANDO SQL: " + sql);
